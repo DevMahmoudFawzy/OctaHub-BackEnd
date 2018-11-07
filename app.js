@@ -13,6 +13,10 @@ mongoose.connect('mongodb://localhost/octahub', { useNewUrlParser: true })
     .then(() => console.log('Connected To MongoDB...'))
     .catch(() => console.error('Could Not Connect To MongoDB...'));
 
+app.get('/', (req, res) => {
+    res.send('Hello OctaHub!');
+});
+
 app.use('/api/categories', categories);
 app.use('/api/products', products);
 

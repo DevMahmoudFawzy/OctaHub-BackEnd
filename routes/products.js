@@ -26,4 +26,20 @@ router.post('/', async (req, res) => {
     res.send(product);
 });
 
+// router.put('/:id', async (req, res) => {
+//     // const { error } = validate(req.body);
+//     // if (error)
+//     //     return res.status(400).send(error.details[0].message);
+
+//     const product = await Product.findByIdAndUpdate(req.params.id, {
+//         name: req.body.name,
+//         price: req.body.price,
+//         image: req.body.image,
+//         categoryId: req.body.categoryId,
+//         numberInStock: req.body.numberInStock
+//     }, { new: true });
+
+//     res.send(product);
+// });
+
 module.exports = router;
