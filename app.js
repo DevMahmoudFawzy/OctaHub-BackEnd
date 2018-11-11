@@ -9,6 +9,16 @@ const products = require('./routes/products');
 const app = express();
 app.use(express.json());
 
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    if (req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', '*');
+        return res.status(200).json({});
+    }
+    next();
+});
+
 mongoose.connect('mongodb://localhost/octahub', { useNewUrlParser: true })
     .then(() => console.log('Connected To MongoDB...'))
     .catch(() => console.error('Could Not Connect To MongoDB...'));
